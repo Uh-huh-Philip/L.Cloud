@@ -1,6 +1,7 @@
 package org.web.service;
 
 import org.json.*;
+import org.web.utility.DbUtility;
 
 import java.sql.*;
 
@@ -19,7 +20,7 @@ public class NearAppList {
 		Statement statement;
 		ResultSet resultSet = null;
 		try {
-			statement = database.connection.createStatement();
+			statement = database.getConnection().createStatement();
 			resultSet = statement
 					.executeQuery("select appname, packagename, icon, description from applist");
 		} catch (SQLException e1) {
@@ -42,11 +43,11 @@ public class NearAppList {
 
 				jsonArray.put(jsonObject);
 			}
-			database.connection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("json化失败");
 		}
+		database.closeConnection();
 		
 		return jsonArray.toString();
 	}
