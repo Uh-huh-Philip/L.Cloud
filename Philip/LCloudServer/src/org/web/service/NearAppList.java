@@ -22,7 +22,7 @@ public class NearAppList {
 		try {
 			statement = database.getConnection().createStatement();
 			resultSet = statement
-					.executeQuery("select appname, packagename, icon, description from applist");
+					.executeQuery("select appname, packagename, icon, description from app");
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			System.out.println("查询失败");

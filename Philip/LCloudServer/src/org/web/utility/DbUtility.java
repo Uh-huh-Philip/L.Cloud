@@ -21,7 +21,7 @@ public class DbUtility {
 			System.out.println("驱动加载失败");
 		}
 		try {
-			this.connection = DriverManager.getConnection("jdbc:mysql://localhost/testforgpsapplist", "root", "");
+			this.connection = DriverManager.getConnection("jdbc:mysql://localhost/app_database", "root", "");
 			System.out.println("连接成功");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
